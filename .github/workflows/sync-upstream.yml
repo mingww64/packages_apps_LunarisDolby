@@ -20,10 +20,10 @@ jobs:
 
       - name: Fetch upstream app
         run: |
-          git clone --depth 1 --branch 16 https://github.com/Pong-Development/hardware_dolby.git upstream
-          rsync -a --delete --exclude '.git/' --exclude '.github/' --exclude 'README.md' upstream/LunarisDolby/ ./
+          upstream_dir="$RUNNER_TEMP/lunarisdolby-upstream"
+          git clone --depth 1 --branch 16 https://github.com/Pong-Development/hardware_dolby.git "$upstream_dir"
+          rsync -a --delete --exclude '.git/' --exclude '.github/' --exclude 'README.md' "$upstream_dir/LunarisDolby/" ./
           sed -i '1i soong_namespace {}\n' Android.bp
-          rm -rf upstream
 
       - name: Commit and push changes
         run: |
