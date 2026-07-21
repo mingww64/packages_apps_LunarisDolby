@@ -2,6 +2,8 @@ name: Sync upstream LunarisDolby
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [upstream-lunarisdolby-update]
   schedule:
     - cron: '17 3 * * 0'
 
