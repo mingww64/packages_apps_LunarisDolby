@@ -168,7 +168,7 @@ fun CreditsDialog(
                         Text(
                             text = "Credits & Contributors",
                             style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold,
+                            fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.onPrimaryContainer
                         )
                     }
@@ -250,7 +250,7 @@ fun CreditsDialog(
                                     Text(
                                         text = "View on GitHub",
                                         style = MaterialTheme.typography.titleMedium,
-                                        fontWeight = FontWeight.Bold,
+                                        fontWeight = FontWeight.SemiBold,
                                         color = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
                                     Text(
@@ -272,7 +272,7 @@ fun CreditsDialog(
                         Text(
                             text = "Main Contributors",
                             style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
+                            fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
                         )
@@ -284,7 +284,7 @@ fun CreditsDialog(
                         Text(
                             text = "Translation Contributors",
                             style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
+                            fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
                         )
@@ -341,7 +341,7 @@ fun CreditsDialog(
                                         Text(
                                             text = "Missing your language?",
                                             style = MaterialTheme.typography.titleMedium,
-                                            fontWeight = FontWeight.Bold,
+                                            fontWeight = FontWeight.SemiBold,
                                             color = MaterialTheme.colorScheme.onPrimaryContainer
                                         )
                                         Spacer(modifier = Modifier.height(2.dp))
@@ -513,7 +513,7 @@ private fun ContributorCard(
                 Text(
                     text = contributor.name,
                     style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
                     color = onContainer
                 )
                 Spacer(modifier = Modifier.height(2.dp))
@@ -622,7 +622,7 @@ private fun CompactTranslationCard(
                     Text(
                         text = target.name,
                         style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold,
+                        fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.onSurface,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis

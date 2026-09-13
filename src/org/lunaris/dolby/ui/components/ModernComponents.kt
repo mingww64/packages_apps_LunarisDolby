@@ -83,6 +83,23 @@ fun Modifier.squishable(
         }
 }
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun tileSelectionBorder(selected: Boolean): BorderStroke {
+    val width by animateDpAsState(
+        targetValue = if (selected) 1.1.dp else 0.8.dp,
+        animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec(),
+        label = "tile_border_width"
+    )
+    val color by animateColorAsState(
+        targetValue = (if (selected) MaterialTheme.colorScheme.primary
+                       else MaterialTheme.colorScheme.outlineVariant).copy(alpha = 0.8f),
+        animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec(),
+        label = "tile_border_color"
+    )
+    return BorderStroke(width, color)
+}
+
 @Composable
 fun DolbyLogo(
     modifier: Modifier = Modifier,
@@ -171,7 +188,7 @@ fun DolbyMainCard(
                         Text(
                             text = stringResource(R.string.dolby_enable),
                             style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
+                            fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Spacer(modifier = Modifier.height(4.dp))
@@ -272,7 +289,7 @@ fun ModernSettingsCard(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
@@ -663,10 +680,7 @@ private fun IeqTile(
             MaterialTheme.shapes.extraLarge
         else
             MaterialTheme.shapes.large,
-        border = if (isSelected)
-            BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
-        else
-            BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+        border = tileSelectionBorder(isSelected)
     ) {
         Row(
             modifier = Modifier
@@ -704,7 +718,7 @@ private fun IeqTile(
             Text(
                 text = entry,
                 style = MaterialTheme.typography.bodyLarge,
-                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Medium,
                 color = if (isSelected)
                     MaterialTheme.colorScheme.onPrimaryContainer
                 else
@@ -744,7 +758,7 @@ fun ModernConfirmDialog(
             Text(
                 title,
                 style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface
             )
         },
